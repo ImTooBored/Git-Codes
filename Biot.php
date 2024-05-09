@@ -60,10 +60,16 @@
 <section>
     <h2>Welcome to Our Home Page</h2>
     <p>This is a sample home page. You can customize it to fit your needs.</p>
+    
+    <?php
+    // PHP code can go here
+    $current_date = date('Y-m-d');
+    echo "<p>Today's date is: $current_date</p>";
+    ?>
 </section>
 
 <footer>
-    <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+    <p>&copy; <?php echo date('Y'); ?> Your Company Name. All rights reserved.</p>
 </footer>
 
 </body>
