@@ -8,11 +8,14 @@
 <body>
     <h2>Company Application Form</h2>
     <form action="submitoDS.php" method="post" enctype="multipart/form-data">
-        <label for="company_name">Company Name:</label><br>
-        <input type="text" id="company_name" name="company_name" required><br><br>
+        <label for "frst_name">First Name:</label><br>
+        <input type="text" id="frst_name" name="frst_name" required><br><br>
 
-        <label for="location">Location:</label><br>
-        <input type="text" id="location" name="location" required><br><br>
+        <label for="mid_name">Middle Name:</label><br>
+        <input type="text" id="mid_name" name="mid_name" required><br><br>
+
+        <label for="company_name">Last Name:</label><br>
+        <input type="text" id="lst_name" name="lst_name" required><br><br>
 
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" required><br><br>
