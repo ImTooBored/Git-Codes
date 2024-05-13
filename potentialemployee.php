@@ -23,15 +23,12 @@
         <label for="contact">Contact:</label><br>
         <input type="tel" id="contact" name="contact" required><br><br>
 
-        <label for="request_to_hire">Position:</label><br>
+        <label for="request_to_hire">What are you applying for?:</label><br>
         <select id="request_to_hire" name="request_to_hire" required>
             <option value="">Select an option</option>
-            <option value="janitor">Janitor</option>
-            <option value="messenger">Messenger</option>
+            <option value="janitor">Employee</option>
+            <option value="messenger">Client</option>
         </select><br><br>
-
-        <label for="num_personnel">Number of Personnel to Hire:</label><br>
-        <input type="number" id="num_personnel" name="num_personnel" min="1" required><br><br>
 
         <label for="file_submission">File Submission:</label><br>
         <input type="file" id="file_submission" name="file_submission" required><br><br>
