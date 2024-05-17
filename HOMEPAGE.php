@@ -227,14 +227,6 @@
             </div>
         </div>
     </div>
-
-
-
-  
-
-  
-
-
     <footer>
         <!-- place footer here -->
     </footer>
