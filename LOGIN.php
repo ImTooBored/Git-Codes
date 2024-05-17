@@ -34,7 +34,7 @@
                         <div class="card-body text-white">
                             <form>
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email address</label>
+                                    <label for="email" class="form-label">User ID</label>
                                     <input type="email" class="form-control bg-transparent border border-white text-white" id="email" aria-describedby="emailHelp" required>
                                 </div>
                                 <div class="mb-3">
