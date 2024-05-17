@@ -223,9 +223,6 @@
         </div>
     </div>
 
-    <footer class="fixed-bottom">
-        <?php include('heads/footer.php')?>
-    </footer>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBogGzB6KAOQ5eKZT1RJp6BarbK0f1D8mL9E5YH5S3p5hMDM" crossorigin="anonymous"></script>
