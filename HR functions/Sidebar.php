@@ -23,7 +23,7 @@
                                 </a>
                             </li>
                             <li class="mt-3">
-                                <a href="" class="nav-link px-0 align-middle">
+                                <a href="approval.php" class="nav-link px-0 align-middle">
                                     <i class="fs-4 bi-patch-check"></i>
                                     <span class="ms-1 d-sm-inline text-dark">Approvals</span>
                                 </a>
