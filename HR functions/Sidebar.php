@@ -30,8 +30,8 @@
                             </li>
                             <li class="mt-3">
                                 <a href="" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-chat-dots"></i>
-                                    <span class="ms-1 d-sm-inline text-dark">Message</span>
+                                    <i class="fs-4 bi bi-paperclip"></i>
+                                    <span class="ms-1 d-sm-inline text-dark">Form</span>
                                 </a>
                             </li>
                         </ul>
