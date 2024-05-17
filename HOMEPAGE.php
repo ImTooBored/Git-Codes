@@ -25,7 +25,7 @@
             <div class="row mt-5 ">
                 <div class="col-lg-7 col-sm-12 custom-left-margin text-white mt-5 align-items-center">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#applicationModal">GET HIRED</button>
-                    <a href="#" class="btn btn-primary ml-2">HIRE PERSONELL</a>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clientsModal">HIRE PERSONELL</button>
                 </div>
             </div>
         </div>
@@ -71,13 +71,168 @@
                     </form>
                 </div>
                 <div class="modal-footer justify-content-center">
-                <a class="btn btn-primary" href="GETHIRED.php" role="button">SUBMIT</a>
+                    <!-- Button to submit form -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#applicationHiredModal">GET HIRED</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Submitted Modal -->
+    <div class="modal" id="applicationHiredModal" tabindex="-1" aria-labelledby="applicationHiredModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row justify-content-center mt-5">
+                                <div class="col-md-6 " style="width: 30rem; ">
+                                    <div class="card text-center bg-dark text-white p-5">
+                                        <!-- Inserting the icon using an img tag -->
+                                        <div class="card-body">
+                                        <img src="./photos/check.png" alt="Check Mark Icon" height=100px width="100px">
+                                            <h5 class="card-title">Application Submitted</h5>
+                                            <p class="card-text">Wait for notification in Email/Phone</p>
+                                            <a href="HOMEPAGE.php" class="btn btn-primary">HOME</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+    <!-- CLIENTS REQUEST FORM -->
+    <div class="modal fade" id="clientsModal" tabindex="-1" aria-labelledby="ClientsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ClientsModalLabel"  style="color: #d4b0b5;">CLIENT'S REQUEST FORM</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-7 col-sm-12 custom-top-margin text-white align-items-right">
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#newClientsModal">New Clients Form</button>
+                            </div>
+                            <div class="col-lg-7 col-sm-12 custom-top-margin text-white mt-5 align-items-right">
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#generalModal">General Cleaning Form</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div> 
+        </div> 
+    </div>
+
+    <!-- New Client's Modal -->
+    <div class="modal fade" id="newClientsModal" tabindex="-1" aria-labelledby="NewClientsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="NewClientsModalLabel"  style="color: #d4b0b5;">NEW CLIENT'S REQUEST FORM</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                    </div>
+                    <div class="modal-body"> 
+                <!-- New Client's Request Form -->
+                <form action="uploadtoDB.php" method="post" enctype="multipart/form-data">
+                    <p>Client</p>
+                    <div class="mb-2">
+                        <label for="company_name" class="form-label">Company Name</label>
+                        <input type="text" class="form-control bg-transparent border border-white text-white" id="company_name" name="company_name" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="location" class="form-label">Company Location</label>
+                        <input type="text" class="form-control bg-transparent border border-white text-white" id="location" name="location">
+                    </div>
+                    <div class="mb-2">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control bg-transparent border border-white text-white" id="email" name="email" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="contact" class="form-label">Contact Number</label>
+                        <input type="text" class="form-control bg-transparent border border-white text-white" id="contact" name="contact" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="request_to_hire" class="form-label">Personnel to Hire</label>
+                        <select class="form-select bg-transparent border border-white text-white" id="request_to_hire" name="request_to_hire" required>
+                            <option value="" disabled selected>Select Personnel to hire</option>
+                            <option value="Janitor">Janitor</option>
+                            <option value="Messenger">Messenger</option>
+                        </select>
+                    </div>
+                    <div class="mb-2">
+                        <label for="num_personnel" class="form-label">Number of Personnel to Hire</label>
+                        <input type="number" class="form-control bg-transparent border border-white text-white" id="num_personnel" name="num_personnel" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="file_submission" class="form-label">Upload Legal Documents for Approval</label>
+                        <input type="file" class="form-control bg-transparent border border-white text-white" id="file_submission" name="file_submission">
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-warning">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <!-- GENERAL CLEANING FORM -->
+        <div class="modal fade" id="generalModal" tabindex="-1" aria-labelledby="generalModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="GeneralModal" style="color: #d4b0b5;">CLIENT'S REQUEST FORM</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="G_cleaningend.php">
+                        <div class="mb-2">
+                            <label for="firstName" class="form-label">First name:</label>
+                            <input type="text" class="form-control bg-transparent border border-white text-white" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="lstname" class="form-label">Last name:</label>
+                            <input type="text" class="form-control bg-transparent border border-white text-white" id="lstname" name="lstname" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="midinit" class="form-label">Middle initial:</label>
+                            <input type="text" class="form-control bg-transparent border border-white text-white" id="midinit" name="midinit" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" class="form-control bg-transparent border border-white text-white" id="location" name="location">
+                        </div>
+                        <div class="mb-2">
+                            <label for="contact" class="form-label">Contact Number</label>
+                            <input type="text" class="form-control bg-transparent border border-white text-white" id="contact" name="contact" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control bg-transparent border border-white text-white" id="email" name="email" required>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="submit" class="btn btn-warning">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
 
+
+  
+
+  
 
 
     <footer>
