@@ -25,11 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = "Pending";
     // Prepare and execute SQL statement to insert file data into the database
     $stmt = $conn->prepare("INSERT INTO application (frstname,lastname,midinit, contact, email, location, attachment, application_date, type, status, result)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
     if ($stmt) {
         $type = "p_employee";
-        $stmt->bind_param("ssssssssssi", $firstName,$lastName,$middleName, $contact, $email, $location, $imageData, $date, $type, $status, $result);
+        $stmt->bind_param("sssssssssss", $firstName,$lastName,$middleName, $contact, $email, $location, $imageData, $date, $type, $status, $result);
 
         if ($stmt->execute()) {
             $submissionSuccess = true;
