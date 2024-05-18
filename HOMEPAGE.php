@@ -45,7 +45,6 @@
                     <!-- Application Form -->
                     <form>
                         <div class="mb-2">
-                            <p>Get hired mother fucker</p>
                             <label for="firstName" class="form-label">First Name</label>
                             <input type="text" class="form-control bg-transparent border border-white text-white" id="firstName" required>
                         </div>
