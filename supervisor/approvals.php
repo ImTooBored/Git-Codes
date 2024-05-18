@@ -22,13 +22,13 @@
             WHERE type = 'supervisor'";
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            echo "<br>".$row["subject"].$row["date"]."<br>".$row["content"]."<br>";
-        }
-    } else {
-        echo "0 results";
-    }
+    // if ($result->num_rows > 0) {
+    //     while($row = $result->fetch_assoc()) {
+    //         echo "<br>".$row["subject"].$row["date"]."<br>".$row["content"]."<br>";
+    //     }
+    // } else {
+    //     echo "0 results";
+    // }
 
 
 
