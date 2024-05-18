@@ -43,6 +43,7 @@
                     <!-- Application Form -->
                     <form action="p_employee_bend.php" method="POST" enctype="multipart/form-data">
                         <div class="mb-2">
+                            <p>Get hired mother fucker</p>
                             <label for="firstName" class="form-label">First Name</label>
                             <input type="text" class="form-control bg-transparent border border-white text-white" id="firstName" name="firstName" required>
                         </div>
@@ -205,7 +206,7 @@
                                 <option value="everydayCleaning">Everyday Cleaning</option>
                                 <option value="postRenovation">Post-Renovation</option>
                             </select>
-                        </div>
+                        </div> 
                         <div class="mb-2">
                             <label for="contact" class="form-label">Contact Number</label>
                             <input type="text" class="form-control bg-transparent border border-white text-white" id="contact" name="contact" required>
