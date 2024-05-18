@@ -42,7 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $imageData = base64_encode($imageData);
     $to_hire = clean_input($_POST["request_to_hire"]);
     $manpower = clean_input($_POST["num_personnel"]);
-    $status = "Applicant";
     $result = "Pending";
 
     // Debugging output to check the value of $status
