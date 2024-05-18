@@ -206,7 +206,7 @@
                                 <option value="everydayCleaning">Everyday Cleaning</option>
                                 <option value="postRenovation">Post-Renovation</option>
                             </select>
-                        </div>
+                        </div> 
                         <div class="mb-2">
                             <label for="contact" class="form-label">Contact Number</label>
                             <input type="text" class="form-control bg-transparent border border-white text-white" id="contact" name="contact" required>
@@ -224,9 +224,6 @@
         </div>
     </div>
 
-    <footer class="fixed-bottom">
-        <?php include('heads/footer.php')?>
-    </footer>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBogGzB6KAOQ5eKZT1RJp6BarbK0f1D8mL9E5YH5S3p5hMDM" crossorigin="anonymous"></script>
