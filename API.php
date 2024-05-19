@@ -2,23 +2,14 @@
 require_once("DB connection.php");
 
 function check_email($email) {
-    // Get the global database connection
     global $conn;
 
-    // Prepare the SQL query to select the email from the database
     $sql = "SELECT email FROM application WHERE email = ?";
     $stmt = $conn->prepare($sql);
-
-    // Bind the email parameter to the SQL query
     $stmt->bind_param("s", $email);
-
-    // Execute the query
     $stmt->execute();
-
-    // Store the result
     $stmt->store_result();
 
-    // Check if any row exists
     if ($stmt->num_rows > 0) {
         $stmt->close();
         return true;
@@ -28,11 +19,25 @@ function check_email($email) {
     }
 }
 
-// Example usage
-$email = 'example@example.com';
-if (check_email($email)) {
-    echo "The email $email exists in the database.";
-} else {
-    echo "The email $email does not exist in the database.";
+function clean_input($data) {
+    $data = trim($data);
+    $data = htmlspecialchars($data);
+    $data = preg_replace('/\b(?:https?|ftp):\/\/\S+/', '', $data);
+    return $data;
 }
+
+function account_exist($email, $password){
+    
+
+
+
+}
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     $email = $_POST['email'];
+//     if (check_email($email)) {
+//         echo "The email $email exists in the database.";
+//     } else {
+//         echo "The email $email does not exist in the database.";
+//     }
+// }
 ?>
