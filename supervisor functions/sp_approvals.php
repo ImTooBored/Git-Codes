@@ -110,13 +110,10 @@
                                                         echo "<td>
                                                                     <div class='d-flex justify-content-between'>
                                                                         <a href='#" . $row['application_date'] . "'>
-                                                                            <button type='button' class='btn btn-info me-3 btn-sm'update</button>
+                                                                            <button type='button' class='btn btn-danger me-3 btn-sm'>update</button>
                                                                         </a>
                                                                     </div>
                                                               </td>";
-
-
-
                                                     } elseif ($type == 'p_employee') {
                                                         echo "<td>" . $row["frstname"] . "</td>";
                                                         echo "<td>" . $row["midinit"] . "</td>";
