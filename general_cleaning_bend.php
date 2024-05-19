@@ -36,7 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "</pre>";
 
     // Clean the input data
-    $firstName = clean_input($_POST["firstName"]);
+    $firstName = clean_input($_POST["frstname"]);
+    $middleInitial = clean_input($_POST["midinit"]);
+    $lastName = clean_input($_POST["lastname"]);
     $location = clean_input($_POST["location"]);
     $email = clean_input($_POST["email"]);
     $contact = clean_input($_POST["contact"]);
@@ -44,12 +46,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = "Pending";
 
     // Prepare and execute SQL statement to insert file data into the database
-    $stmt = $conn->prepare("INSERT INTO application (frstname, contact, email, location, application_date, type, result)
-                            VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO application (frstname, midinit, lastname, contact, email, location, application_date, type, result)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
     if ($stmt) {
         $type = "general_cleaning";
-        $stmt->bind_param("sssssss", $firstName, $contact, $email, $location, $date, $type, $result);
+        $stmt->bind_param("sssssssss", $firstName, $middleInitial, $lastName, $contact, $email, $location, $date, $type, $result);
 
         if ($stmt->execute()) {
             $submissionSuccess = true;

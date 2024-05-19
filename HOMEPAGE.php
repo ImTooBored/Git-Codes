@@ -170,42 +170,51 @@
         </div>
     </div>
     <!-- GENERAL CLEANING FORM -->
-<div class="modal fade" id="generalModal" tabindex="-1" aria-labelledby="generalModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content bg-dark text-white">
-            <div class="modal-header">
-                <h5 class="modal-title" id="GeneralModal" style="color: #d4b0b5;">CLIENT'S REQUEST FORM</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-            </button>
+            <div class="modal fade" id="generalModal" tabindex="-1" aria-labelledby="generalModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content bg-dark text-white">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="GeneralModal" style="color: #d4b0b5;">CLIENT'S REQUEST FORM</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Client's Request Form -->
+                            <form method="POST" action="general_cleaning_bend.php" enctype="multipart/form-data">
+                                <!-- Name Fields -->
+                                <div class="mb-2">
+                                    <label class="form-label">Company Representative Name</label>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="text" class="form-control bg-transparent border border-white text-white" id="frstname" name="frstname" placeholder="First Name" required>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control bg-transparent border border-white text-white" id="midinit" name="midinit" placeholder="Middle Initial">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control bg-transparent border border-white text-white" id="lastname" name="lastname" placeholder="Last Name" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="location" class="form-label">Location</label>
+                                    <input type="text" class="form-control bg-transparent border border-white text-white" id="location" name="location" placeholder="Location" required>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="contact" class="form-label">Contact Number</label>
+                                    <input type="text" class="form-control bg-transparent border border-white text-white" id="contact" name="contact" placeholder="Contact Number" required>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control bg-transparent border border-white text-white" id="email" name="email" placeholder="Email" required>
+                                </div>
+                                <div class="modal-footer justify-content-center">
+                                    <button type="submit" class="btn btn-warning">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-                <!-- Client's Request Form -->
-                <form method="POST" action="general_cleaning_bend.php" enctype="multipart/form-data">
-                    <div class="mb-2">
-                        <label for="firstName" class="form-label">Full Name</label>
-                        <input type="text" class="form-control bg-transparent border border-white text-white" id="firstName" name="firstName" required>
-                    </div>
-                    <div class="mb-2">
-                        <label for="location" class="form-label">Location</label>
-                        <input type="text" class="form-control bg-transparent border border-white text-white" id="location" name="location" required>
-                    </div>
-                    <div class="mb-2">
-                        <label for="contact" class="form-label">Contact Number</label>
-                        <input type="text" class="form-control bg-transparent border border-white text-white" id="contact" name="contact" required>
-                    </div>
-                    <div class="mb-2">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control bg-transparent border border-white text-white" id="email" name="email" required>
-                    </div>
-
-                    <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-warning">Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBgAXJpGHW8sxY7zA3RoGa9A5eYPm1Eqpy6znK36uW8vN8pK" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-pH8f+ZBU8B+dOOYdJq2dCRJ6+LMcsGfm5F8j3Ga1NsT6D6SJV7owbQm35aN5bium" crossorigin="anonymous"></script>
