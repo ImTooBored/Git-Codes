@@ -19,13 +19,6 @@ function check_email($email) {
     }
 }
 
-function clean_input($data) {
-    $data = trim($data);
-    $data = htmlspecialchars($data);
-    $data = preg_replace('/\b(?:https?|ftp):\/\/\S+/', '', $data);
-    return $data;
-}
-
 function account_exist($email, $password){
     
 
