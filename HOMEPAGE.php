@@ -43,7 +43,6 @@
                     <!-- Application Form -->
                     <form action="p_employee_bend.php" method="POST" enctype="multipart/form-data">
                         <div class="mb-2">
-                            <p>Get hired mother fucker</p>
                             <label for="firstName" class="form-label">First Name</label>
                             <input type="text" class="form-control bg-transparent border border-white text-white" id="firstName" name="firstName" required>
                         </div>
@@ -60,18 +59,19 @@
                             <input type="email" class="form-control bg-transparent border border-white text-white" id="email" name="email" required>
                         </div>
                         <div class="mb-2">
-                            <label for="contact" class="form-label">Contact Number</label>
-                            <input type="text" class="form-control bg-transparent border border-white text-white" id="contact" name="contact" required>
+                            <label for="contactNumber" class="form-label">Contact Number</label>
+                            <input type="text" class="form-control bg-transparent border border-white text-white" id="contactNumber" name="contactNumber" required>
                         </div>
                         <div class="mb-2">
                             <label for="file" class="form-label">Upload File</label>
-                            <input type="file" class="form-control bg-transparent border border-white text-white" id="file" name="file_submission">
+                            <input type="file" class="form-control bg-transparent border border-white text-white" id="file" name="file_submission" required>
                         </div>
-                        <div class="modal-footer justify-content-center">
-                            <button type="submit" class="btn btn-primary">GET HIRED</button>
-                        </div>
-                    </form>
                 </div>
+                <div class="modal-footer justify-content-center">
+                    <!-- Button to submit form -->
+                    <button type="submit" class="btn btn-primary">GET HIRED</button>
+                </div>
+                    </form>
             </div>
         </div>
     </div>
@@ -83,7 +83,7 @@
                 <div class="modal-body">
                     <div class="container">
                         <div class="row justify-content-center mt-5">
-                            <div class="col-md-6" style="width: 30rem;">
+                            <div class="col-md-6 " style="width: 30rem;">
                                 <div class="card text-center bg-dark text-white p-5">
                                     <!-- Inserting the icon using an img tag -->
                                     <div class="card-body">
@@ -133,7 +133,7 @@
                     <h5 class="modal-title" id="NewClientsModalLabel" style="color: #d4b0b5;">NEW CLIENT'S REQUEST FORM</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body"> 
+                <div class="modal-body">
                     <!-- New Client's Request Form -->
                     <form action="uploadtoDB.php" method="post" enctype="multipart/form-data">
                         <p>Client</p>
@@ -146,87 +146,64 @@
                             <input type="text" class="form-control bg-transparent border border-white text-white" id="location" name="location">
                         </div>
                         <div class="mb-2">
-                            <label for="email" class="form-label">Email Address</label>
+                            <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control bg-transparent border border-white text-white" id="email" name="email" required>
                         </div>
                         <div class="mb-2">
-                            <label for="serviceType" class="form-label">Type of Service</label>
-                            <select class="form-control bg-transparent border border-white text-white" id="serviceType" name="serviceType" required>
-                                <option value="default" selected disabled>--Select--</option>
-                                <option value="postConstruction">Post-Construction</option>
-                                <option value="everydayCleaning">Everyday Cleaning</option>
-                                <option value="postRenovation">Post-Renovation</option>
-                            </select>
+                            <label for="contact_number" class="form-label">Contact Number</label>
+                            <input type="text" class="form-control bg-transparent border border-white text-white" id="contact_number" name="contact_number" required>
                         </div>
                         <div class="mb-2">
-                            <label for="contact" class="form-label">Contact Number</label>
-                            <input type="text" class="form-control bg-transparent border border-white text-white" id="contact" name="contact" required>
+                            <label for="file" class="form-label">Upload File</label>
+                            <input type="file" class="form-control bg-transparent border border-white text-white" id="file" name="file_submission" required>
                         </div>
-                        <div class="mb-2">
-                            <label for="dateOfService" class="form-label">Date of Service</label>
-                            <input type="date" class="form-control bg-transparent border border-white text-white" id="dateOfService" name="dateOfService">
-                        </div>
-                        <div class="modal-footer justify-content-center">
-                            <button type="submit" class="btn btn-primary">REQUEST</button>
-                        </div>
-                    </form>
                 </div>
+                <div class="modal-footer justify-content-center">
+                    <!-- Button to submit form -->
+                    <button type="submit" class="btn btn-warning">Submit</button>
+                </div>
+                    </form>
             </div>
         </div>
     </div>
-
-    <!-- General Cleaning Modal -->
-    <div class="modal fade" id="generalModal" tabindex="-1" aria-labelledby="generalModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content bg-dark text-white">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="generalModalLabel" style="color: #d4b0b5;">GENERAL CLEANING FORM</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- General Cleaning Form -->
-                    <form action="generalCleaningRequest.php" method="POST" enctype="multipart/form-data">
-                        <div class="mb-2">
-                            <label for="company_name" class="form-label">Company Name</label>
-                            <input type="text" class="form-control bg-transparent border border-white text-white" id="company_name" name="company_name" required>
-                        </div>
-                        <div class="mb-2">
-                            <label for="location" class="form-label">Company Location</label>
-                            <input type="text" class="form-control bg-transparent border border-white text-white" id="location" name="location">
-                        </div>
-                        <div class="mb-2">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" class="form-control bg-transparent border border-white text-white" id="email" name="email" required>
-                        </div>
-                        <div class="mb-2">
-                            <label for="serviceType" class="form-label">Type of Service</label>
-                            <select class="form-control bg-transparent border border-white text-white" id="serviceType" name="serviceType" required>
-                                <option value="default" selected disabled>--Select--</option>
-                                <option value="postConstruction">Post-Construction</option>
-                                <option value="everydayCleaning">Everyday Cleaning</option>
-                                <option value="postRenovation">Post-Renovation</option>
-                            </select>
-                        </div> 
-                        <div class="mb-2">
-                            <label for="contact" class="form-label">Contact Number</label>
-                            <input type="text" class="form-control bg-transparent border border-white text-white" id="contact" name="contact" required>
-                        </div>
-                        <div class="mb-2">
-                            <label for="dateOfService" class="form-label">Date of Service</label>
-                            <input type="date" class="form-control bg-transparent border border-white text-white" id="dateOfService" name="dateOfService">
-                        </div>
-                        <div class="modal-footer justify-content-center">
-                            <button type="submit" class="btn btn-primary">REQUEST</button>
-                        </div>
-                    </form>
-                </div>
+    <!-- GENERAL CLEANING FORM -->
+<div class="modal fade" id="generalModal" tabindex="-1" aria-labelledby="generalModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header">
+                <h5 class="modal-title" id="GeneralModal" style="color: #d4b0b5;">CLIENT'S REQUEST FORM</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            </button>
+            </div>
+            <div class="modal-body">
+                <!-- Client's Request Form -->
+                <form method="POST" action="general_cleaning_bend.php" enctype="multipart/form-data">
+                    <div class="mb-2">
+                        <label for="firstName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control bg-transparent border border-white text-white" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control bg-transparent border border-white text-white" id="location" name="location" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="contact" class="form-label">Contact Number</label>
+                        <input type="text" class="form-control bg-transparent border border-white text-white" id="contact" name="contact" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control bg-transparent border border-white text-white" id="email" name="email" required>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-warning">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-
-
+</div>
     <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBogGzB6KAOQ5eKZT1RJp6BarbK0f1D8mL9E5YH5S3p5hMDM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-enhEMM1vKUNjT31S7LX6cwPsgjo1E50jrf6D4aMwytN0lVbqt7k5i9eD0p0MX0By" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBgAXJpGHW8sxY7zA3RoGa9A5eYPm1Eqpy6znK36uW8vN8pK" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-pH8f+ZBU8B+dOOYdJq2dCRJ6+LMcsGfm5F8j3Ga1NsT6D6SJV7owbQm35aN5bium" crossorigin="anonymous"></script>
 </body>
 </html>
