@@ -24,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $imageData = base64_encode($imageData);
     $result = "Pending";
     // Prepare and execute SQL statement to insert file data  into the database
+
     $email_test = check_email($email);
     if ($email_test){
         $submissionSuccess = false;
@@ -42,8 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     });
                 });
             </script>
-            <?php endif;
-        ?>
+            <?php endif;?>
 <?php
     }else{
     $stmt = $conn->prepare("INSERT INTO application (frstname,lastname,midinit, contact, email, location, attachment, application_date, type, result)
