@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $imageData = file_get_contents($_FILES["file_submission"]["tmp_name"]);
     $imageData = base64_encode($imageData);
     $result = "Pending";
-    // Prepare and execute SQL statement to insert file data into the database
+    // Prepare and execute SQL statement to insert file data  into the database
     $stmt = $conn->prepare("INSERT INTO application (frstname,lastname,midinit, contact, email, location, attachment, application_date, type, result)
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 

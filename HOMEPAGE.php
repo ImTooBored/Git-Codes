@@ -38,7 +38,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="applicationModalLabel" style="color: #d4b0b5;">APPLICATION FORM</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+                </div> 
                 <div class="modal-body">
                     <!-- Application Form -->
                     <form action="p_employee_bend.php" method="POST" enctype="multipart/form-data">
@@ -194,6 +194,7 @@
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control bg-transparent border border-white text-white" id="email" name="email" required>
                     </div>
+
                     <div class="modal-footer justify-content-center">
                         <button type="submit" class="btn btn-warning">Submit</button>
                     </div>

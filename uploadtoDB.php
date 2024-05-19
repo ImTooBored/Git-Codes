@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $type = "p_client";
         $stmt->bind_param("ssssssssss", $company_name, $contact, $email, $location, $imageData, $date, $type, $result, $to_hire, $manpower);
 
-        if ($stmt->execute()) {
+        if ($stmt->execute()) { 
             $submissionSuccess = true;
         } else {
             echo "<p>Error: Unable to insert data. " . $stmt->error . "</p>";
