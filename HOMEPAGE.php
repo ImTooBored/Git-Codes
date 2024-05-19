@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Home</title>
+    <title>Home </title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <?php include('heads/Header.php')?>
+        <?php include('Header.php')?>
     </header>
 
     <main class="bg-image row"> <!-- #bg-image style is available only in header.php -->
@@ -25,38 +25,40 @@
             <div class="row mt-5 ">
                 <div class="col-lg-7 col-sm-12 custom-left-margin text-white mt-5 align-items-center">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#applicationModal">GET HIRED</button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clientsModal">HIRE PERSONNEL</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clientsModal">HIRE PERSONELL</button>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Application Modal -->
-    <div class="modal fade" id="applicationModal" tabindex="-1" aria-labelledby="applicationModalLabel" aria-hidden="true">
+
+     <!-- Application Modal -->
+     <div class="modal fade" id="applicationModal" tabindex="-1" aria-labelledby="applicationModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="applicationModalLabel" style="color: #d4b0b5;">APPLICATION FORM</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="applicationModalLabel"  style="color: #d4b0b5;">APPLICATION FORM</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
                 </div>
                 <div class="modal-body">
                     <!-- Application Form -->
-                    <form action="p_employee_bend.php" method="POST" enctype="multipart/form-data">
+                    <form>
                         <div class="mb-2">
                             <label for="firstName" class="form-label">First Name</label>
-                            <input type="text" class="form-control bg-transparent border border-white text-white" id="firstName" name="firstName" required>
+                            <input type="text" class="form-control bg-transparent border border-white text-white" id="firstName" required>
                         </div>
                         <div class="mb-2">
                             <label for="middleName" class="form-label">Middle Name</label>
-                            <input type="text" class="form-control bg-transparent border border-white text-white" id="middleName" name="middleName">
+                            <input type="text" class="form-control bg-transparent border border-white text-white" id="middleName">
                         </div>
                         <div class="mb-2">
                             <label for="lastName" class="form-label">Last Name</label>
-                            <input type="text" class="form-control bg-transparent border border-white text-white" id="lastName" name="lastName" required>
+                            <input type="text" class="form-control bg-transparent border border-white text-white" id="lastName" required>
                         </div>
                         <div class="mb-2">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control bg-transparent border border-white text-white" id="email" name="email" required>
+                            <input type="email" class="form-control bg-transparent border border-white text-white" id="email" required>
                         </div>
                         <div class="mb-2">
                             <label for="contactNumber" class="form-label">Contact Number</label>
@@ -98,17 +100,18 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
+
 
     <!-- CLIENTS REQUEST FORM -->
     <div class="modal fade" id="clientsModal" tabindex="-1" aria-labelledby="ClientsModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ClientsModalLabel" style="color: #d4b0b5;">CLIENT'S REQUEST FORM</h5>
+                    <h5 class="modal-title" id="ClientsModalLabel"  style="color: #d4b0b5;">CLIENT'S REQUEST FORM</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+
                 <div class="modal-body">
                     <form>
                         <div class="row">
