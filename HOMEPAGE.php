@@ -61,16 +61,20 @@
                         <div class="mb-2">
                             <label for="contactNumber" class="form-label">Contact Number</label>
                             <input type="text" class="form-control bg-transparent border border-white text-white" id="contactNumber" name="contactNumber" required>
+                            <input type="text" class="form-control bg-transparent border border-white text-white" id="contactNumber" name="contactNumber" required>
                         </div>
                         <div class="mb-2">
                             <label for="file" class="form-label">Upload File</label>
+                            <input type="file" class="form-control bg-transparent border border-white text-white" id="file" name="file_submission" required>
                             <input type="file" class="form-control bg-transparent border border-white text-white" id="file" name="file_submission" required>
                         </div>
                 </div>
                 <div class="modal-footer justify-content-center">
                     <!-- Button to submit form -->
                     <button type="submit" class="btn btn-primary">GET HIRED</button>
+                    <button type="submit" class="btn btn-primary">GET HIRED</button>
                 </div>
+                    </form>
                     </form>
             </div>
         </div>
@@ -98,7 +102,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 
     <!-- CLIENTS REQUEST FORM -->
@@ -161,7 +164,39 @@
                 <div class="modal-footer justify-content-center">
                     <!-- Button to submit form -->
                     <button type="submit" class="btn btn-warning">Submit</button>
+                    <h5 class="modal-title" id="NewClientsModalLabel" style="color: #d4b0b5;">NEW CLIENT'S REQUEST FORM</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <div class="modal-body">
+                    <!-- New Client's Request Form -->
+                    <form action="uploadtoDB.php" method="post" enctype="multipart/form-data">
+                        <p>Client</p>
+                        <div class="mb-2">
+                            <label for="company_name" class="form-label">Company Name</label>
+                            <input type="text" class="form-control bg-transparent border border-white text-white" id="company_name" name="company_name" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="location" class="form-label">Company Location</label>
+                            <input type="text" class="form-control bg-transparent border border-white text-white" id="location" name="location">
+                        </div>
+                        <div class="mb-2">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control bg-transparent border border-white text-white" id="email" name="email" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="contact_number" class="form-label">Contact Number</label>
+                            <input type="text" class="form-control bg-transparent border border-white text-white" id="contact_number" name="contact_number" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="file" class="form-label">Upload File</label>
+                            <input type="file" class="form-control bg-transparent border border-white text-white" id="file" name="file_submission" required>
+                        </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <!-- Button to submit form -->
+                    <button type="submit" class="btn btn-warning">Submit</button>
+                </div>
+                    </form>
                     </form>
             </div>
         </div>
@@ -194,7 +229,6 @@
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control bg-transparent border border-white text-white" id="email" name="email" required>
                     </div>
-
                     <div class="modal-footer justify-content-center">
                         <button type="submit" class="btn btn-warning">Submit</button>
                     </div>
