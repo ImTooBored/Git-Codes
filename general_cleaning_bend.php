@@ -29,31 +29,27 @@ function clean_input($data) {
 $submissionSuccess = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Debugging: output POST data
+    echo "<pre>";
+    print_r($_POST);
+    print_r($_FILES);
+    echo "</pre>";
+
     // Clean the input data
-    $company_name = clean_input($_POST["company_name"]);
+    $firstName = clean_input($_POST["firstName"]);
     $location = clean_input($_POST["location"]);
     $email = clean_input($_POST["email"]);
     $contact = clean_input($_POST["contact"]);
-    $position = clean_input($_POST["request_to_hire"]);
-    $num_personnel = clean_input($_POST["num_personnel"]);
     $date = date('Y-m-d');
-    $imageName = $_FILES["file_submission"]["name"];
-    $imageData = file_get_contents($_FILES["file_submission"]["tmp_name"]);
-    $imageData = base64_encode($imageData);
-    $to_hire = clean_input($_POST["request_to_hire"]);
-    $manpower = clean_input($_POST["num_personnel"]);
     $result = "Pending";
 
-    // Debugging output to check the value of $status
-    // echo "Status: " . $status; // Check what value is being assigned to $status
-
     // Prepare and execute SQL statement to insert file data into the database
-    $stmt = $conn->prepare("INSERT INTO application (comp_name, contact, email, location, attachment, application_date, type, result, to_hire, num_hire)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO application (frstname, contact, email, location, application_date, type, result)
+                            VALUES (?, ?, ?, ?, ?, ?, ?)");
 
     if ($stmt) {
-        $type = "p_client";
-        $stmt->bind_param("ssssssssss", $company_name, $contact, $email, $location, $imageData, $date, $type, $result, $to_hire, $manpower);
+        $type = "general_cleaning";
+        $stmt->bind_param("sssssss", $firstName, $contact, $email, $location, $date, $type, $result);
 
         if ($stmt->execute()) {
             $submissionSuccess = true;

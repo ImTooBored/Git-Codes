@@ -16,12 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $middleName = clean_input($_POST["middleName"]);
     $lastName = clean_input($_POST["lastName"]);
     $email= clean_input($_POST["email"]);
-    $contact = clean_input($_POST["contact"]);
+    $contact = clean_input($_POST["contactNumber"]);
     $date = date('Y-m-d');
     $imageName = $_FILES["file_submission"]["name"];
     $imageData = file_get_contents($_FILES["file_submission"]["tmp_name"]);
     $imageData = base64_encode($imageData);
-    $status = "Applicant";
     $result = "Pending";
     // Prepare and execute SQL statement to insert file data into the database
     $stmt = $conn->prepare("INSERT INTO application (frstname,lastname,midinit, contact, email, location, attachment, application_date, type, result)
@@ -72,5 +71,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </script>
     <?php endif; ?>
 </body>
-
 </html>
