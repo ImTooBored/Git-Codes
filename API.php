@@ -19,12 +19,26 @@ function check_email($email) {
     }
 }
 
-function account_exist($email, $password){
-    
+function account_exist($email, $password) {
+    global $conn;
 
+    $sql = "SELECT email, password 
+            FROM account 
+            WHERE email = ? AND password = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $email, $password);
+    $stmt->execute();
+    $stmt->store_result();
 
-
+    if ($stmt->num_rows > 0) {
+        $stmt->close();
+        return true;
+    } else {
+        $stmt->close();
+        return false;
+    }
 }
+
 // if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //     $email = $_POST['email'];
 //     if (check_email($email)) {

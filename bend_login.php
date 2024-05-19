@@ -6,5 +6,11 @@
         $email = $_POST["email"];
         $password = $_POST["password"];
         echo $email,"<br>",$password; 
+        if (account_exist($email,$password)){
+            echo "<br>account exist";
+        }else{
+            echo "<br>Account not found";
+        }
+
     }
 ?>
