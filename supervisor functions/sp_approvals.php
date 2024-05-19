@@ -22,7 +22,7 @@
                     </button>
                     <ul class="navbar-nav mx-auto align-items-center">
                         <li class="nav-item text-white">
-                            <p class="fs-1"style="margin-left:100px">DASHBOARD</p>
+                            <p class="fs-1"style="margin-left:100px">Approvals</p>
                         </li>
                     </ul>
                         <div class="ml-auto">
@@ -41,14 +41,14 @@
                         <form method="GET" action="">
                             <div class="row mb-3">
                                 <div class="col-sm-6 col-md-3 align-items-center">
-                                    <div class="fs-5">COMPANY</div>
+                                    <div class="fs-5">General Cleaning</div>
                                 </div>
                                 <div class="col-sm-6 col-md-3">
                                     <select class="form-select bg-transparent border border-black text-black" id="result" name="result" required>
                                         <option value="" disabled <?php echo !isset($_GET['result']) ? 'selected' : ''; ?>>Results</option>
                                         <option value="Pending" <?php echo (isset($_GET['result']) && $_GET['result'] == 'Pending') ? 'selected' : ''; ?>>Pending</option>
-                                        <option value="Ongoing" <?php echo (isset($_GET['result']) && $_GET['result'] == 'Ongoing') ? 'selected' : ''; ?>>Ongoing</option>
-                                        <option value="Done" <?php echo (isset($_GET['result']) && $_GET['result'] == 'Done') ? 'selected' : ''; ?>>Done</option>
+                                        <option value="Ongoing" <?php echo (isset($_GET['result']) && $_GET['result'] == 'Ongoing') ? 'selected' : ''; ?>>Accepted</option>
+                                        <option value="Done" <?php echo (isset($_GET['result']) && $_GET['result'] == 'Done') ? 'selected' : ''; ?>>Rejected</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-6 col-md-3">
@@ -80,7 +80,6 @@
                                                     <th scope='col'>Contact Details</th>
                                                     <th scope='col'>Email</th>
                                                     <th scope='col'>Location</th>
-                                                    <th scope='col'>Attachment</th>
                                                     <th scope='col'>Action</th>
                                                 </tr>";
                                         } elseif ($type == 'p_employee') {
@@ -90,7 +89,6 @@
                                                     <th scope='col'>Contact Details</th>
                                                     <th scope='col'>Email</th>
                                                     <th scope='col'>Location</th>
-                                                    <th scope='col'>Attachment</th>
                                                     <th scope='col'>Action</th>
                                                 </tr>";
                                         }
@@ -109,14 +107,10 @@
                                                         echo "<td>" . $row["contact"] . "</td>";
                                                         echo "<td>" . $row["email"] . "</td>";
                                                         echo "<td>" . $row["location"] . "</td>";
-                                                        echo "<td><a href='view.file.php?id=" . $row["attachment"] . "' <i class=' text-black fs-4 bi bi-filetype-doc'></i></a></td>";
                                                         echo "<td>
                                                                     <div class='d-flex justify-content-between'>
                                                                         <a href='#" . $row['application_date'] . "'>
-                                                                            <button type='button' class='btn btn-danger me-3 btn-sm'>Reject</button>
-                                                                        </a>
-                                                                        <a href='#" . $row['application_date'] . "'>
-                                                                            <button type='button' class='btn btn-success btn-sm'>Approve</button>
+                                                                            <button type='button' class='btn btn-info me-3 btn-sm'update</button>
                                                                         </a>
                                                                     </div>
                                                               </td>";
