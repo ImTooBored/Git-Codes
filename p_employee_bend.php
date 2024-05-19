@@ -1,5 +1,6 @@
 <?php
 require_once 'DB connection.php';
+require_once 'API.php';
 
 function clean_input($data) {
     $data = trim($data);
@@ -23,6 +24,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $imageData = base64_encode($imageData);
     $result = "Pending";
     // Prepare and execute SQL statement to insert file data  into the database
+
+    $email_test = check_email($email);
+    if ($email_test){
+        $submissionSuccess = false;
+        ?>
+        <?php if ($submissionSuccess == false): ?>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        title: 'Email already exists',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'HOMEPAGE.php';
+                        }
+                    });
+                });
+            </script>
+            <?php endif;?>
+<?php
+    }else{
     $stmt = $conn->prepare("INSERT INTO application (frstname,lastname,midinit, contact, email, location, attachment, application_date, type, result)
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
@@ -39,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->close();
     } else {
         // echo "<p>Error: Unable to prepare statement. " . $conn->error . "</p>";
+    }   
     }
 }
 ?>
@@ -55,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Your form goes here -->
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <?php if ($submissionSuccess): ?>
+    <?php if ($submissionSuccess == true): ?>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 Swal.fire({

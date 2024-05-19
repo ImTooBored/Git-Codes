@@ -20,9 +20,11 @@
 
     <body>
         <header>
-            <?php include('heads/Header.php')?>  
+            <?php 
+            include('heads/Header.php');
+            require_once "API.php";
+            ?>  
         </header>
-
     <main class="bg-image row ">
         <div class="container mt-5">
             <div class="row justify-content-center">
@@ -30,16 +32,16 @@
                     <div class="card" style="background-color: #1c1c39;">
                         <div class="card-header text-center" style="color: #d4b0b5;">
                             <h3>Login</h3>
-                        </div>
-                        <div class="card-body text-white">
-                            <form>
+                            </div>
+                            <div class="card-body text-white">
+                            <form action="bend_login.php" method="POST">
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">User ID</label>
-                                    <input type="email" class="form-control bg-transparent border border-white text-white" id="email" aria-describedby="emailHelp" required>
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" name="email" class="form-control bg-transparent border border-white text-white" id="email" aria-describedby="emailHelp" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control bg-transparent border border-white text-white" id="password" required>
+                                    <input type="password" name="password" class="form-control bg-transparent border border-white text-white" id="password" required>
                                 </div>
                                 <div class="d-flex justify-content-center mt-5">
                                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -51,10 +53,6 @@
             </div>
         </div>
         </main>
-        <footer>
-            <!-- place footer here -->
-        </footer>
-        <!-- Bootstrap JavaScript Libraries -->
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

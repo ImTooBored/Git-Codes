@@ -55,6 +55,10 @@
                             <input type="text" class="form-control bg-transparent border border-white text-white" id="lastName" name="lastName" required>
                         </div>
                         <div class="mb-2">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" class="form-control bg-transparent border border-white text-white" id="lastName" name="lastName" required>
+                        </div>
+                        <div class="mb-2">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control bg-transparent border border-white text-white" id="email" name="email" required>
                         </div>
@@ -136,7 +140,6 @@
                 <div class="modal-body">
                     <!-- New Client's Request Form -->
                     <form action="uploadtoDB.php" method="post" enctype="multipart/form-data">
-                        <p>Client</p>
                         <div class="mb-2">
                             <label for="company_name" class="form-label">Company Name</label>
                             <input type="text" class="form-control bg-transparent border border-white text-white" id="company_name" name="company_name" required>
