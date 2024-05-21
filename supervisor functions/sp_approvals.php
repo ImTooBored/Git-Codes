@@ -45,10 +45,9 @@
                                 </div>
                                 <div class="col-sm-6 col-md-3">
                                     <select class="form-select bg-transparent border border-black text-black" id="result" name="result" required>
-                                        <option value="" disabled <?php echo !isset($_GET['result']) ? 'selected' : ''; ?>>Results</option>
-                                        <option value="Pending" <?php echo (isset($_GET['result']) && $_GET['result'] == 'Pending') ? 'selected' : ''; ?>>Pending</option>
-                                        <option value="Ongoing" <?php echo (isset($_GET['result']) && $_GET['result'] == 'Ongoing') ? 'selected' : ''; ?>>Accepted</option>
-                                        <option value="Done" <?php echo (isset($_GET['result']) && $_GET['result'] == 'Done') ? 'selected' : ''; ?>>Rejected</option>
+                                        <option value="pending" <?php echo (isset($_GET['result']) && $_GET['result'] == 'pending') ? 'selected' : ''; ?>>Pending</option>
+                                        <option value="reject" <?php echo (isset($_GET['result']) && $_GET['result'] == 'accept') ? 'selected' : ''; ?>>Accepted</option>
+                                        <option value="accept" <?php echo (isset($_GET['result']) && $_GET['result'] == 'reject') ? 'selected' : ''; ?>>Rejected</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-6 col-md-3">
@@ -60,20 +59,23 @@
                                 <div class="table-responsive w-80">
                                     <table class="table table-bordered table-striped text-center overflow-auto">
                                         <?php
+                                        
                                         require_once 'DB connection.php';
 
                                         $type = isset($_GET['type']) ? $_GET['type'] : ''; // Variable for type filter
                                         $result = isset($_GET['result']) ? $_GET['result'] : ''; // Variable for result filter
-
+                                        // echo ;
                                         // SQL query construction
-                                        $sql = "SELECT * FROM application WHERE type = '$type'";
+                                        $sql = "SELECT c.Comp_Name, c.com_rep, c.Contact_Num, c.location
+                                                FROM APPROVALS a
+                                                JOIN CLIENT c ON c.acc_id = a.comp_id
+                                                WHERE a.status = '$type'";
 
-                                        if (!empty($result)) {
-                                            $sql .= " AND result = '$result'";
-                                        }
-
+                                        // if (!empty($result)) {
+                                        //     $sql = " AND a.status = '$type'";
+                                        // }
                                         echo "<thead>";
-                                        if ($type == 'p_client') {
+                                        if ($type == 'pending') {
                                             echo "<tr>
                                                     <th scope='col'>Company</th>
                                                     <th scope='col'>Company Representative</th>
@@ -82,7 +84,7 @@
                                                     <th scope='col'>Location</th>
                                                     <th scope='col'>Action</th>
                                                 </tr>";
-                                        } elseif ($type == 'p_employee') {
+                                        } elseif ($type == 'accept') {
                                             echo "<tr>
                                                     <th scope='col'>Company</th>
                                                     <th scope='col'>Company Representative</th>
@@ -103,10 +105,10 @@
                                                     echo "<tr>";
                                                     echo "<td>" . $row["applicant_id"] . "</td>";
                                                     if ($type == 'p_client') {
-                                                        echo "<td>" . $row["comp_name"] . "</td>";
-                                                        echo "<td>" . $row["contact"] . "</td>";
-                                                        echo "<td>" . $row["email"] . "</td>";
-                                                        echo "<td>" . $row["location"] . "</td>";
+                                                        echo "<td>" . $row["c.Comp_Name"] . "</td>";
+                                                        echo "<td>" . $row["c.Contact_Num"] . "</td>";
+                                                        echo "<td>" . $row["c.Email"] . "</td>";
+                                                        echo "<td>" . $row["c.Location"] . "</td>";
                                                         echo "<td>
                                                                     <div class='d-flex justify-content-between'>
                                                                         <a href='#" . $row['application_date'] . "'>

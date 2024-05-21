@@ -23,7 +23,8 @@ function getLastAccountNumber() {
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             preg_match_all('!\d+!', $row["acc_id"], $matches);
-            return $id = intval($matches[0][0])+ 1; // Convert the first matched number to an integer
+            return $id = intval($matches[0][0])+ 1;
+           
         }
     } else {
         return null;
@@ -70,35 +71,18 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         echo "naay sulod";
     }
-}else{
+}else{ // for client
     echo "sulod sa else";
-    $test = "SELECT * FROM application WHERE type = 'p_client' AND result = 'Accept'";
-    $result = $conn->query($test);
-    if ($result && $result->num_rows > 0) {
-        // Fetch email from the first row
-        $row = $result->fetch_assoc();
-        $email = $row['email'];    
-        $id = getLastAccountNumber();
-        $add_acc = "INSERT INTO account (acc_id, email, password) 
-                    VALUES (:id, :email, :password)";
-        $stmt = $conn->prepare($sql);
-        $id = getLastAccountNumber(); // Replace with your acc_id value
-        $email = $email; // Replace with your email value
-        $password = "samplepassword1";
-        $stmt->bindParam(':id', $id);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', $password);
+    $test_client = "SELECT frstname,lastname,midinit,contact, email, location, interview_date, type,
+                    CASE 
+                        WHEN type = 'p_employee' THEN 'E'
+                        WHEN type = 'p_client ' THEN 'C'
+                    END AS user_type
+                    FROM application 
+                    WHERE type = 'p_employee' AND result = 'Accept'";
+    $id = getLastAccountNumber();
+    $id = strval($id);
 
-        // Execute the prepared statement
-        if ($stmt->execute()) {
-            echo "New record inserted successfully.";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-
-        // Close database connection
-        $conn->close();
-    }
 }
 
 
