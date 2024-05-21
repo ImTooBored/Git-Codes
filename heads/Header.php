@@ -41,6 +41,9 @@
                     <li class="nav-item px-3">
                         <a class="nav-link text-light" href="ABOUTUS.php">About</a>
                     </li>
+                    <li class="nav-item px-3">
+                        <a class="nav-link text-light" href="LOGIN.php">Log in</a>
+                    </li>
                     <li class="nav-item px-3 ">
                         <img src="./photos/Company_logo.png" alt="logo" class="img-fluid" style="max-height: 80px;">
                     </li>  
