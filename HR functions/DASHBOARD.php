@@ -248,7 +248,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['interview_date']) && i
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <form method='POST' action='DASHBOARD.php'> <!-- Replace 'update_result.php' with your actual PHP file handling the form submission -->
+                                                        <form method='POST' action='DASHBOARD.php'> 
                                                             <div class='modal-footer d-flex justify-content-between'>
                                                                 <button type='submit' name='result' value='Accept' class='btn btn-success'>Accept</button>
                                                                 <button type='submit' name='result' value='Reject' class='btn btn-danger'>Reject</button>

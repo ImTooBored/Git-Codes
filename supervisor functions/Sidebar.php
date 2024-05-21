@@ -19,12 +19,6 @@
                                     <span class="ms-1 d-sm-inline text-dark">Performance Upload</span>
                                 </a>
                             </li>
-                            <li class="mt-2 mb-5">
-                                <a href="sp_approvals.php" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-patch-check"></i>
-                                    <span class="ms-1 d-sm-inline text-dark">Approvals</span>
-                                </a>
-                            </li>
                         </ul>
                         <div class="dropdown pb-4  text-dark">
                             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">

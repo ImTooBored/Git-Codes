@@ -25,14 +25,8 @@
                                     <span class="ms-1 d-sm-inline text-dark">List of Companies</span>
                                 </a>
                             </li>
-                            <li class="mt-2">
-                                <a href="approval.php" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-patch-check"></i>
-                                    <span class="ms-1 d-sm-inline text-dark">Approvals</span>
-                                </a>
-                            </li>
                             <li class="mt-2 mb-5">
-                                <a href="" class="nav-link px-0 align-middle">
+                                <a href="Form_View_Bend.php" class="nav-link px-0 align-middle">
                                     <i class="fs-4 bi bi-paperclip"></i>
                                     <span class="ms-1 d-sm-inline text-dark">Form</span>
                                 </a>
