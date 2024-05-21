@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['interview_date']) && i
                 </li>
             </ul>
                 <div class="ml-auto">
-                    <img src="./photos/Company_logo.png" alt="logo" class="img-fluid" style="max-height: 80px;">
+                    <img src="../photos/Company_logo.png" alt="logo" class="img-fluid" style="max-height: 80px;">
                 </div>
 </header>
 
