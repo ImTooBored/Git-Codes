@@ -35,7 +35,7 @@
                                                                         <!-- sa db ni siya kuhaon -->
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small  text-dark shadow" aria-labelledby="dropdownUser1">
-                                <li><a class="dropdown-item" href="#">Log out</a></li>
+                                <li><a class="dropdown-item" href="../LOGOUT.php">Log out</a></li>
                             </ul>
                         </div>
                     </div>
