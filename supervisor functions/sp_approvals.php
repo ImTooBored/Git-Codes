@@ -94,7 +94,7 @@
                                                 echo "<td>" . $row["email"] . "</td>";
                                                 echo "<td>" . $row["location"] . "</td>";
                                                 echo "<td>" . $row["application_date"] . "</td>";
-                                                if ($row["result"] == 'pending') {
+                                                if ($result == 'pending') {
                                                     echo "<td>
                                                         <div class='d-flex justify-content-between'>
                                                             <form method='POST' action=''>
