@@ -1,34 +1,4 @@
-<?php
-session_start();
-require_once 'DB connection.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $req_hire = $_POST['req_hire'];
-  $purpose = $_POST['purpose'];
-  $starting_date = $_POST['starting_date'];
-  $ending_date = $_POST['ending_date'];
-
-  
-
-  $sql = "INSERT INTO request_form (req_hire, purpose, starting_date, ending_date) 
-          VALUES (?, ?, ?, ?)";
-
-  $stmt = $conn->prepare($sql);
-  $stmt->bind_param("ssss", $req_hire, $purpose, $starting_date, $ending_date);
-
-  if ($stmt->execute()) {
-    echo "New record created successfully";
-    // Redirect to notification.php after successful insert
-    header("Location: notification.php");
-  } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
-
-  $stmt->close();
-}
-
-$conn->close();
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,36 +52,38 @@ $conn->close();
                             <h5 class="modal-title" id="requestrelieverLabel">Company Name</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <form action="Sidebar.php" method="POST" enctype="multipart/form-data" id="requestForm">
-                                <div class="mb-2">
-                                    <h5 class="d-flex justify-content-center" style="color: #d4b0b5;">Request Form</h5>
-                                </div>
-                                <div class="mb-2 text-white">
-                                    <label for="req_hire" class="form-label">Request to Hire</label>
-                                    <select class="form-select bg-transparent border border-white text-white" id="req_hire" name="req_hire" required>
-                                        <option value="" class="bg-dark" disabled selected>Please Choose</option>
-                                        <option value="Janitor" class="bg-dark">Janitor</option>
-                                        <option value="Messenger" class="bg-dark">Messenger</option>
-                                    </select>
-                                </div>
-                                <div class="mb-2">
-                                    <label for="purpose" class="form-label">Purpose</label>
-                                    <input type="text" class="form-control bg-transparent border border-white text-white" id="purpose" name="purpose" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="starting_date" class="form-label">Contract Start Date</label>
-                                    <input type="date" class="form-control bg-transparent border border-white text-white" id="starting_date" name="starting_date" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="ending_date" class="form-label">Contract End Date</label>
-                                    <input type="date" class="form-control bg-transparent border border-white text-white" id="ending_date" name="ending_date" required>
-                                </div>
-                                <div class="modal-footer d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-primary">Send</button>
-                                </div>
-                            </form>
-                        </div>
+
+                            <div class="modal-body">
+                                <form action="requestform_bend.php" method="POST" enctype="multipart/form-data" id="requestForm">
+                                    <div class="mb-2">
+                                        <h5 class="d-flex justify-content-center" style="color: #d4b0b5;">Request Form</h5>
+                                    </div>
+                                    <div class="mb-2 text-white">
+                                        <label for="req_hire" class="form-label">Request to Hire</label>
+                                        <select class="form-select bg-transparent border border-white text-white" id="req_hire" name="req_hire" required>
+                                            <option value="" class="bg-dark" disabled selected>Please Choose</option>
+                                            <option value="Janitor" class="bg-dark">Janitor</option>
+                                            <option value="Messenger" class="bg-dark">Messenger</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="purpose" class="form-label">Purpose</label>
+                                        <input type="text" class="form-control bg-transparent border border-white text-white" id="purpose" name="purpose" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="starting_date" class="form-label">Contract Start Date</label>
+                                        <input type="date" class="form-control bg-transparent border border-white text-white" id="starting_date" name="starting_date" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="ending_date" class="form-label">Contract End Date</label>
+                                        <input type="date" class="form-control bg-transparent border border-white text-white" id="ending_date" name="ending_date" required>
+                                    </div>
+                                    <div class="modal-footer d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-primary">Send</button>
+                                    </div>
+                                </form>
+                            </div>
+
                         
                     </div>
                 </div>

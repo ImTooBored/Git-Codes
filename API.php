@@ -38,13 +38,24 @@ function account_exist($email, $password) {
         return false;
     }
 }
+function acc_id($email) {
+    global $conn;
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     $email = $_POST['email'];
-//     if (check_email($email)) {
-//         echo "The email $email exists in the database.";
-//     } else {
-//         echo "The email $email does not exist in the database.";
-//     }
-// }
+    $sql = "SELECT acc_id FROM account WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->bind_result($acc_id);
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        $stmt->fetch();
+        $stmt->close();
+        return $acc_id; // Return the account ID
+    } else {
+        $stmt->close();
+        return false; // Return false if the account does not exist
+    }
+}
+
 ?>
