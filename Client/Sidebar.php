@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
     <body>
@@ -28,6 +26,12 @@
                                     <span class="ms-1 d-sm-inline text-dark">Request for Reliever</span>
                                 </a>
                             </li>
+                            <li class="mt-2">
+                                <a href="../LOGOUT.php" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi bi-box-arrow-right"></i>
+                                    <span class="ms-1 d-sm-inline text-dark">Log-out</span>
+                                </a>
+                            </li>
                         </ul>
                         <div class="dropdown pb-4  text-dark">
                             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,7 +41,7 @@
                                                                         <!-- sa db ni siya kuhaon -->
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small  text-dark shadow" aria-labelledby="dropdownUser1">
-                                <li><a class="dropdown-item" href="../LOGOUT.php">Log out</a></li>
+                                <li><a class="dropdown-item" href="#">Log out</a></li>
                             </ul>
                         </div>
                     </div>

@@ -1,3 +1,14 @@
+<?php
+session_start();
+require_once 'DB connection.php';
+
+// Check if the user is logged in
+if (!isset($_SESSION['account_id'])) {
+    header("Location: ../HOMEPAGE.php");
+    exit(); // Ensure no further code is executed
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
