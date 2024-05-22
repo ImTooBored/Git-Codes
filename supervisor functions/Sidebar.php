@@ -19,6 +19,12 @@
                                     <span class="ms-1 d-sm-inline text-dark">Performance Upload</span>
                                 </a>
                             </li>
+                            <li class="mt-2">
+                                <a href="sp_approvals.php" class="nav-link px-0 align-middle">
+                                    <i class=" fs-4 bi bi-paperclip"></i>
+                                    <span class="ms-1 d-sm-inline text-dark">Forms</span>
+                                </a>
+                            </li>
                         </ul>
                         <div class="dropdown pb-4  text-dark">
                             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">

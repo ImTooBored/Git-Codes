@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>DASHBOARD</title>
+    <title>Supervisor Approvals</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,123 +30,123 @@
                         </div>
         </header>
 
-        <main class="container-fluid  min-vw-100 p-0 row" style="overflow-x: hidden;">
-            <div class="row">
-                <div class="col-lg-3 mt-3">
-                    <?php include('Sidebar.php') ?>
-                </div>
-                <div class="col-lg-9 mt-3">
-                    <div class="card">
-                        <div class="card-body" style="max-height: 60vh;">
-                        <form method="GET" action="">
-                            <div class="row mb-3">
-                                <div class="col-sm-6 col-md-3 align-items-center">
-                                    <div class="fs-5">General Cleaning</div>
-                                </div>
-                                <div class="col-sm-6 col-md-3">
-                                    <select class="form-select bg-transparent border border-black text-black" id="result" name="result" required>
-                                        <option value="pending" <?php echo (isset($_GET['result']) && $_GET['result'] == 'pending') ? 'selected' : ''; ?>>Pending</option>
-                                        <option value="reject" <?php echo (isset($_GET['result']) && $_GET['result'] == 'accept') ? 'selected' : ''; ?>>Accepted</option>
-                                        <option value="accept" <?php echo (isset($_GET['result']) && $_GET['result'] == 'reject') ? 'selected' : ''; ?>>Rejected</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-6 col-md-3">
-                                    <button type="submit" class="btn btn-primary">Filter</button>
-                                </div>
+        <main class="container-fluid min-vw-100 p-0 row" style="overflow-x: hidden;">
+    <div class="row">
+        <div class="col-lg-3 mt-3">
+            <?php include('Sidebar.php') ?>
+        </div>
+        <div class="col-lg-9 mt-3">
+            <div class="card">
+                <div class="card-body" style="max-height: 60vh;">
+                    <form method="GET" action="">
+                        <div class="row mb-3">
+                            <div class="col-sm-6 col-md-3 align-items-center">
+                                <div class="fs-5">General Cleaning</div>
                             </div>
-                        </form>
-                            <div class="d-flex justify-content-center" style="max-height: 45vh;">
-                                <div class="table-responsive w-80">
-                                    <table class="table table-bordered table-striped text-center overflow-auto">
-                                        <?php
-                                        
-                                        require_once 'DB connection.php';
-
-                                        $type = isset($_GET['type']) ? $_GET['type'] : ''; // Variable for type filter
-                                        $result = isset($_GET['result']) ? $_GET['result'] : ''; // Variable for result filter
-                                        // echo ;
-                                        // SQL query construction
-                                        $sql = "SELECT c.Comp_Name, c.com_rep, c.Contact_Num, c.location
-                                                FROM APPROVALS a
-                                                JOIN CLIENT c ON c.acc_id = a.comp_id
-                                                WHERE a.status = '$type'";
-
-                                        // if (!empty($result)) {
-                                        //     $sql = " AND a.status = '$type'";
-                                        // }
-                                        echo "<thead>";
-                                        if ($type == 'pending') {
-                                            echo "<tr>
-                                                    <th scope='col'>Company</th>
-                                                    <th scope='col'>Company Representative</th>
-                                                    <th scope='col'>Contact Details</th>
-                                                    <th scope='col'>Email</th>
-                                                    <th scope='col'>Location</th>
-                                                    <th scope='col'>Action</th>
-                                                </tr>";
-                                        } elseif ($type == 'accept') {
-                                            echo "<tr>
-                                                    <th scope='col'>Company</th>
-                                                    <th scope='col'>Company Representative</th>
-                                                    <th scope='col'>Contact Details</th>
-                                                    <th scope='col'>Email</th>
-                                                    <th scope='col'>Location</th>
-                                                    <th scope='col'>Action</th>
-                                                </tr>";
-                                        }
-                                        echo "</thead>";
-                                        echo "<tbody>";
-
-                                        if ($conn) {
-                                            $query_result = $conn->query($sql);
-
-                                            if ($query_result && $query_result->num_rows > 0) {
-                                                while ($row = $query_result->fetch_assoc()) {
-                                                    echo "<tr>";
-                                                    echo "<td>" . $row["applicant_id"] . "</td>";
-                                                    if ($type == 'p_client') {
-                                                        echo "<td>" . $row["c.Comp_Name"] . "</td>";
-                                                        echo "<td>" . $row["c.Contact_Num"] . "</td>";
-                                                        echo "<td>" . $row["c.Email"] . "</td>";
-                                                        echo "<td>" . $row["c.Location"] . "</td>";
-                                                        echo "<td>
-                                                                    <div class='d-flex justify-content-between'>
-                                                                        <a href='#" . $row['application_date'] . "'>
-                                                                            <button type='button' class='btn btn-danger me-3 btn-sm'>update</button>
-                                                                        </a>
-                                                                    </div>
-                                                              </td>";
-                                                    } elseif ($type == 'p_employee') {
-                                                        echo "<td>" . $row["frstname"] . "</td>";
-                                                        echo "<td>" . $row["midinit"] . "</td>";
-                                                        echo "<td>" . $row["lastname"] . "</td>";
-                                                        echo "<td>" . $row["email"] . "</td>";
-                                                        echo "<td>" . $row["contact"] . "</td>";
-                                                        echo "<td><a href='view.file.php?id=" . $row["attachment"] . "' class='btn btn-primary btn-sm'>View Attachment</a></td>";
-                                                        echo "<td>" . $row["application_date"] . "</td>";
-                                                    }
-                                                    echo "</tr>";
-                                                }
-                                            } else {
-                                                echo "<tr><td colspan='9' class='p-3'>No results found</td></tr>";
-                                            }
-                                        } else {
-                                            echo "<tr><td colspan='9' class='p-3'>Database connection failed</td></tr>";
-                                        }
-
-                                        if ($conn) {
-                                            $conn->close();
-                                        }
-                                        echo "</tbody>";
-                                        ?>
-                                    </table>
-                                </div>
+                            <div class="col-sm-6 col-md-3">
+                                <select class="form-select bg-transparent border border-black text-black" id="result" name="result" required>
+                                    <option value="pending" <?php echo (isset($_GET['result']) && $_GET['result'] == 'pending') ? 'selected' : ''; ?>>Pending</option>
+                                    <option value="accept" <?php echo (isset($_GET['result']) && $_GET['result'] == 'accept') ? 'selected' : ''; ?>>Accepted</option>
+                                    <option value="reject" <?php echo (isset($_GET['result']) && $_GET['result'] == 'reject') ? 'selected' : ''; ?>>Rejected</option>
+                                </select>
                             </div>
+                            <div class="col-sm-6 col-md-3">
+                                <button type="submit" class="btn btn-primary">Filter</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="d-flex justify-content-center" style="max-height: 45vh;">
+                        <div class="table-responsive w-80">
+                            <table class="table table-bordered table-striped text-center overflow-auto">
+                                <?php
+                                require_once 'DB connection.php';
+
+                                // Check if accept or reject button was clicked and update the database
+                                if (isset($_POST['update_result'])) {
+                                    $applicant_id = $_POST['applicant_id'];
+                                    $new_result = $_POST['new_result'];
+
+                                    $update_sql = "UPDATE application SET result = '$new_result' WHERE applicant_id = '$applicant_id'";
+                                    if ($conn->query($update_sql) === TRUE) {
+                                        echo "<div class='alert alert-success'>Record updated successfully</div>";
+                                    } else {
+                                        echo "<div class='alert alert-danger'>Error updating record: " . $conn->error . "</div>";
+                                    }
+                                }
+
+                                $result = isset($_GET['result']) ? $_GET['result'] : ''; // Variable for result filter
+
+                                // SQL query construction
+                                $sql = "SELECT * FROM application WHERE type = 'general_cleaning' AND result = '$result'";
+
+                                echo "<thead>";
+                                echo "<tr>
+                                        <th scope='col'>First Name</th>
+                                        <th scope='col'>Last Name</th>
+                                        <th scope='col'>Middle Initial</th>
+                                        <th scope='col'>Contact Number</th>
+                                        <th scope='col'>Email Address</th>
+                                        <th scope='col'>Location</th>
+                                        <th scope='col'>Application Date</th>
+                                        <th scope='col'>Action</th>
+                                    </tr>";
+                                echo "</thead>";
+                                echo "<tbody>";
+
+                                if ($conn) {
+                                    $query_result = $conn->query($sql);
+
+                                    if ($query_result && $query_result->num_rows > 0) {
+                                        while ($row = $query_result->fetch_assoc()) {
+                                            echo "<tr>";
+                                            echo "<td>" . $row["frstname"] . "</td>";
+                                            echo "<td>" . $row["lastname"] . "</td>";
+                                            echo "<td>" . $row["midinit"] . "</td>";
+                                            echo "<td>" . $row["contact"] . "</td>";
+                                            echo "<td>" . $row["email"] . "</td>";
+                                            echo "<td>" . $row["location"] . "</td>";
+                                            echo "<td>" . $row["application_date"] . "</td>";
+                                            echo "<td>
+                                                    <div class='d-flex justify-content-between'>
+                                                        <form method='POST' action=''>
+                                                            <input type='hidden' name='applicant_id' value='" . $row['applicant_id'] . "'>
+                                                            <input type='hidden' name='new_result' value='accept'>
+                                                            <button type='submit' name='update_result' class='btn btn-success me-3 btn-sm'>Accept</button>
+                                                        </form>
+                                                        <form method='POST' action=''>
+                                                            <input type='hidden' name='applicant_id' value='" . $row['applicant_id'] . "'>
+                                                            <input type='hidden' name='new_result' value='reject'>
+                                                            <button type='submit' name='update_result' class='btn btn-danger me-3 btn-sm'>Reject</button>
+                                                        </form>
+                                                    </div>
+                                                  </td>";
+                                            echo "</tr>";
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='8' class='p-3'>No results found</td></tr>";
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='8' class='p-3'>Database connection failed</td></tr>";
+                                }
+
+                                if ($conn) {
+                                    $conn->close();
+                                }
+                                echo "</tbody>";
+                                ?>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
+    </div>
+</main>
+
+
+
+
+
 
         <!-- Bootstrap JavaScript Libraries -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
