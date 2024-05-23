@@ -56,7 +56,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="location" class="form-label">Location</label>
-                            <input type="text" class="form-control bg-transparent border border-white text-white" id="lastName" name="lastName" required>
+                            <input type="text" class="form-control bg-transparent border border-white text-white" id="location" name="location" required>
                         </div>
                         <div class="mb-2">
                             <label for="email" class="form-label">Email</label>

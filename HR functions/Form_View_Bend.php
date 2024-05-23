@@ -90,23 +90,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="d-flex justify-content-center" style="max-height: 45vh;">
                         <div class="table-responsive w-100">
                             <table class="table table-bordered table-striped text-center overflow-auto">
-                            <thead>
-                                <tr>
-                                    <th scope='col'>Company Name</th>
-                                    <th scope='col'>Company Representative</th>
-                                    <th scope='col'>Contact Number</th>
-                                    <th scope='col'>Email</th>
-                                    <th scope='col'>Purpose</th>
-                                    <th scope='col'>Starting Date</th>
-                                    <th scope='col'>Ending Date</th>
-                                    <?php if ($status == 'pending'): ?>
-                                        <th scope='col'>Actions</th>
-                                    <?php else: ?>
-                                        <th scope='col'>Action</th>
-                                    <?php endif; ?>
-                                </tr>
-                            </thead>
-
+                                <thead>
+                                    <tr>
+                                        <th scope='col'>Company Name</th>
+                                        <th scope='col'>Company Representative</th>
+                                        <th scope='col'>Contact Number</th>
+                                        <th scope='col'>Position</th>
+                                        <th scope='col'>Email</th>
+                                        <th scope='col'>Purpose</th>
+                                        <th scope='col'>Starting Date</th>
+                                        <th scope='col'>Ending Date</th>
+                                        <?php if (isset($_GET['status']) && $_GET['status'] == 'pending'): ?>
+                                            <th scope='col'>Actions</th>
+                                        <?php endif; ?>
+                                    </tr>
+                                </thead>
                                 <tbody>
                                     <?php
                                     require_once 'DB connection.php';
@@ -114,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     $status = isset($_GET['status']) ? $_GET['status'] : ''; // Variable for status filter
 
                                     // SQL query construction
-                                    $stmt = $conn->prepare("SELECT c.Comp_Name, c.com_rep, c.Contact_Num, c.Email, r.purpose, r.starting_date, r.ending_date, r.req_id
+                                    $stmt = $conn->prepare("SELECT c.Comp_Name, c.com_rep, c.Contact_Num, r.req_hire, c.Email, r.purpose, r.starting_date, r.ending_date, r.req_id
                                                             FROM CLIENT c
                                                             JOIN request_form r ON c.acc_id = r.client_id
                                                             WHERE r.status = ?");
@@ -128,6 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             echo "<td>" . $row["Comp_Name"] . "</td>";
                                             echo "<td>" . $row["com_rep"] . "</td>";
                                             echo "<td>" . $row["Contact_Num"] . "</td>";
+                                            echo "<td>" . $row["req_hire"] . "</td>";
                                             echo "<td>" . $row["Email"] . "</td>";
                                             echo "<td>" . $row["purpose"] . "</td>";
                                             echo "<td>" . $row["starting_date"] . "</td>";
@@ -145,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             echo "</tr>";
                                         }
                                     } else {
-                                        echo "<tr><td colspan='8' class='p-3'>No records found</td></tr>";
+                                        echo "<tr><td colspan='9' class='p-3'>No records found</td></tr>";
                                     }
 
                                     $stmt->close();
@@ -160,7 +159,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 </main>
-
 <?php
 // Flush the output buffer
 ob_end_flush();
