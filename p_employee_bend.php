@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $middleName = clean_input($_POST["middleName"]);
     $lastName = clean_input($_POST["lastName"]);
     $email= clean_input($_POST["email"]);
+    $location = clean_input($_POST["location"]);
     $contact = clean_input($_POST["contactNumber"]);
     $date = date('Y-m-d');
     $imageName = $_FILES["file_submission"]["name"];
